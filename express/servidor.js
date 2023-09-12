@@ -1,7 +1,11 @@
-const http = require("node:http");
+const express= require("express")
+const morgan= require("morgan")
+const cors= require("cors")
+const app =  express()
 
-http.createServer(function(req,res){
-    res.write("helo")
-    res.end()
-    
-}).listen(3000,console.log("servidor en el puerto 3000"));
+app.use(morgan("combined"))
+app.use(cors())
+
+app.use(require("./routes/tareas.routes"))
+
+app.listen(3000, console.log("servidor numero 3000"))
