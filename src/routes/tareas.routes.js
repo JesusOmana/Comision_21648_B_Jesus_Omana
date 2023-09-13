@@ -8,7 +8,7 @@ const {
     editarPost,
     enlistadoPost,
     individualPost,
-} =require("../controllers/controllers")
+} =require("../../src/controllers/controllers")
 
 router.get("/",enlistadoPost)
 router.get("/:id",individualPost)
