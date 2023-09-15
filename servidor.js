@@ -3,10 +3,9 @@ const morgan= require("morgan")
 const cors= require("cors")
 const app =  express()
 const { sequelize } = require("./database")
-const { json } = require("sequelize")
 
-/* middlewares */
-app.use(express,json())
+
+/* middleware */
 app.use(morgan("dev"))
 app.use(cors())
 
