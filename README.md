@@ -10,6 +10,3 @@ Para iniciar el proyecto se debe ejecutar o siguiente en el terminal:
 
 2)npm run dev
 
-Repositorio Git hub
-
-https://github.com/JesusOmana/Comision_21648_B_Jesus_Omana.git
