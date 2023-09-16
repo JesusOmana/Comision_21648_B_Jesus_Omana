@@ -1,12 +1,12 @@
 const {NoteModel} = require ("../model/post.js")
 
 /* se usa el metodo .create para almacenar los datos y poder crear el 
-posteo, s ele colocan los valores que se consideran para crear el post */
+posteo, se le colocan los valores que se consideran para crear el post */
 
-async function crearPost(req,res) {
-    const {titulo, contenido, url } = req.body
+async function crearPost (req, res) {
+    const {titulo, contenido, image} = req.body
 
-    await NoteModel.create({titulo,contenido,url})
+    await NoteModel.create({titulo,contenido,image})
 
     res.send("crear posteo")
 }
@@ -36,9 +36,9 @@ se va a cambiar, es decir, cuando id sea igual a id.*/
 
 async function editarPost(req,res) {
     const id = req.params.id
-    const {titulo, contenido, url } = req.body
+    const {titulo, contenido, image } = req.body
 
-    await NoteModel.update({titulo,contenido,url},{
+    await NoteModel.update({titulo,contenido,image},{
         where: {
             id:id
         }
@@ -68,8 +68,8 @@ async function individualPost(req,res) {
 
     const task = await NoteModel.findByPk(id)
     
-        if (task=null) {
-            return res.sen("La tarea que busca no se encuentra")
+        if (task==null) {
+            return res.send("La tarea que busca no se encuentra")
         }
 
     res.json(task)
