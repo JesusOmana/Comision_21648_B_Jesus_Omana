@@ -15,8 +15,10 @@ app.set("view engine", "ejs")
 
 /* routes! */
 app.use(require("./src/routes/tareas.routes"))
-app.set("views", __dirname,("/view"))
-
+app.set("views",__dirname + "/views")
+app.get("/",(req, res)=> {
+    res.render("index")
+})
 
 app.listen(3000, () => {
     /* se cambio de authenticate a SYNC para que me cree

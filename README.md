@@ -10,3 +10,5 @@ Para iniciar el proyecto se debe ejecutar o siguiente en el terminal:
 
 2)npm run dev
 
+
+NOTA; soy de la comision Comisión 21648 B que no vio "variables de entorno"

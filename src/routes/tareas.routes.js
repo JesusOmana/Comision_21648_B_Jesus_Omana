@@ -3,17 +3,17 @@ const { Router } = require ("express")
 const router = Router()
 
 const {
-    crearPost,
-    borrarPost,
-    editarPost,
-    enlistadoPost,
-    individualPost,
+    crearPosteo,
+    borrarPosteo,
+    editarPosteo,
+    enlistadoPosteo,
+    individualPosteo,
 } =require("../../src/controllers/controllers")
 
-router.get("/",enlistadoPost)
-router.get("/:id",individualPost)
-router.post("/",crearPost)
-router.delete("/:id",borrarPost)
-router.put("/:id",editarPost)
+router.get("/",enlistadoPosteo)
+router.get("/:id",individualPosteo)
+router.post("/",crearPosteo)
+router.delete("/:id",borrarPosteo)
+router.put("/:id",editarPosteo)
 
 module.exports = router
