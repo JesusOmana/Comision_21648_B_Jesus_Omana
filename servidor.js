@@ -4,20 +4,19 @@ const cors= require("cors")
 const app =  express()
 const { sequelize } = require("./database")
 
-
 /* middleware */
 app.use(express.json())
 app.use(cors())
 app.use(morgan("dev"))
 app.use(express.static("public"))
-app.set("view engine", "ejs")
-
+app.set('view engine', 'ejs')
+app.set("views",__dirname + "/views")
 
 /* routes! */
 app.use(require("./src/routes/tareas.routes"))
-app.set("views",__dirname + "/views")
-app.get("/",(req, res)=> {
-    res.render("index")
+
+app.get((req, res)=> {
+    res.render("/views/index")
 })
 
 app.listen(3000, () => {
