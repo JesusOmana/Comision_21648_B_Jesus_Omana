@@ -13,14 +13,13 @@ async function crearPosteo (req, res) {
         url:url,
     })
 
-    res.send("crear posteo")
+    res.render("crearpost")
+    
 }
-
 /* primero se requiere el id para determinar que post se quiere eliminar
 luego se usa el metodo destroy, pero a destroy hay que decirle que 
 eliminar de lo contrario elimina todo (OJO), entonces se usa una condicion
 WHERE para que compare la Id solicitada sea igual a la Id a eliminar */
-
 async function borrarPosteo(req, res) {
     const id = req.params.id;
     await NoteModel.destroy({
@@ -29,13 +28,10 @@ async function borrarPosteo(req, res) {
     });
     res.send("se ");
 }
-
-
 /* se solicita el id del post que se quiere editar y ademas se traen los valores posibles
 a modificar (titulo, contenido y url), luego se usa el metodo update para modificar y
 y se le pasan los valores a modificar, se usa la condicion WHere para determinar cuando
 se va a cambiar, es decir, cuando id sea igual a id.*/
-
 async function editarPosteo(req,res) {
     const id = req.params.id
     const {titulo, contenido, image } = req.body
@@ -48,7 +44,6 @@ async function editarPosteo(req,res) {
 
     res.send("editar posteo")
 }
-
 /* se usa el metodo findAll para buscar todo los posteos y se pide
 que responda con un metodo json para ver la lista, colocar entre parentesis
 alltask para que sepa que resultado tiene que devolver*/
@@ -56,9 +51,8 @@ async function enlistadoPosteo(req,res) {
 
     const allTasks = await NoteModel.findAll()
 
-    res.render("index",{allTasks})
+    res.render("posteos",{allTasks})
 }
-
 /* para buscar un solo post se requiere el parametro ID para luego usar 
 el metodo findByPk que busca de todo los arrays creados quien tiene el
 id y se coloca un If para dar como respuesta en caso de que no se encuentre

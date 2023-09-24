@@ -12,7 +12,7 @@ const {
 
 router.get("/",enlistadoPosteo)
 router.get("/:id",individualPosteo)
-router.post("/",crearPosteo)
+router.get("/crearpost",crearPosteo)
 router.delete("/:id",borrarPosteo)
 router.put("/:id",editarPosteo)
 
