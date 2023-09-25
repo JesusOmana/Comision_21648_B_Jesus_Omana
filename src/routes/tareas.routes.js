@@ -4,6 +4,7 @@ const router = Router()
 
 const {
     crearPosteo,
+    abrirFormulario,
     borrarPosteo,
     editarPosteo,
     enlistadoPosteo,
@@ -11,8 +12,9 @@ const {
 } =require("../../src/controllers/controllers")
 
 router.get("/",enlistadoPosteo)
+router.get("/paginapost",abrirFormulario)
+router.post("/crearpost",crearPosteo)
 router.get("/:id",individualPosteo)
-router.get("/crearpost",crearPosteo)
 router.delete("/:id",borrarPosteo)
 router.put("/:id",editarPosteo)
 

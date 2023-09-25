@@ -1,6 +1,11 @@
 const {NoteModel} = require ("../model/posteos.js")
 const { all } = require("../routes/tareas.routes.js")
 
+
+function abrirFormulario (req, res) {
+res.render("formulario")
+}
+
 /* se usa el metodo .create para almacenar los datos y poder crear el 
 posteo, se le colocan los valores que se consideran para crear el post */
 
@@ -9,11 +14,11 @@ async function crearPosteo (req, res) {
 
     await NoteModel.create({
         titulo:titulo,
-        contenido:titulo,
+        contenido:contenido,
         url:url,
     })
 
-    res.render("crearpost")
+    res.redirect("/posteos")
     
 }
 /* primero se requiere el id para determinar que post se quiere eliminar
@@ -64,14 +69,15 @@ async function individualPosteo(req,res) {
 
     const task = await NoteModel.findByPk(id)
     
-        if (task==null) {
+/*         if (task==null) {
             return res.send("La tarea que busca no se encuentra")
-        }
+        } */
     res.json(task)
 }
 
 module.exports = {
     crearPosteo,
+    abrirFormulario,
     borrarPosteo,
     editarPosteo,
     enlistadoPosteo,
