@@ -1,6 +1,4 @@
 const {NoteModel} = require ("../model/posteos.js")
-const { all } = require("../routes/tareas.routes.js")
-
 
 function abrirFormulario (req, res) {
 res.render("formulario")
@@ -15,7 +13,7 @@ async function crearPosteo (req, res) {
     await NoteModel.create({
         titulo:titulo,
         contenido:contenido,
-        url:url,
+        url:url
     })
 
     res.redirect("/posteos")
@@ -26,29 +24,37 @@ luego se usa el metodo destroy, pero a destroy hay que decirle que
 eliminar de lo contrario elimina todo (OJO), entonces se usa una condicion
 WHERE para que compare la Id solicitada sea igual a la Id a eliminar */
 async function borrarPosteo(req, res) {
-    const id = req.params.id;
-    await NoteModel.destroy({
-        where: {
-            id: id}
-    });
-    res.send("se ");
+    const postId = req.params.id;
+    const posteos = await NoteModel.findByPk(postId)
+    await posteos.destroy()
+    res.redirect("/posteos")
 }
 /* se solicita el id del post que se quiere editar y ademas se traen los valores posibles
 a modificar (titulo, contenido y url), luego se usa el metodo update para modificar y
 y se le pasan los valores a modificar, se usa la condicion WHere para determinar cuando
 se va a cambiar, es decir, cuando id sea igual a id.*/
-async function editarPosteo(req,res) {
+async function formularioEditarPosteo(req,res) {
     const id = req.params.id
-    const {titulo, contenido, image } = req.body
+/* cambiar el nombre del id */
+    const posteos_jesus = await NoteModel.findByPk(id)
 
-    await NoteModel.update({titulo,contenido,image},{
-        where: {
-            id:id
+        if (!posteos_jesus){
+            return res.redirect("/posteos")
         }
-    })
-
-    res.send("editar posteo")
+    res.render("editarposteo", {posteos_jesus})
 }
+
+async function editarPosteo (req, res) {
+    const {id, titulo, contenido, url} = req.body
+
+    const posteos_jesus = await NoteModel.findByPk(id)
+
+    await posteos_jesus.update({titulo, contenido, url})
+
+    res.redirect("/posteos")
+    
+}
+
 /* se usa el metodo findAll para buscar todo los posteos y se pide
 que responda con un metodo json para ver la lista, colocar entre parentesis
 alltask para que sepa que resultado tiene que devolver*/
@@ -82,4 +88,5 @@ module.exports = {
     editarPosteo,
     enlistadoPosteo,
     individualPosteo,
+    formularioEditarPosteo,
 }
