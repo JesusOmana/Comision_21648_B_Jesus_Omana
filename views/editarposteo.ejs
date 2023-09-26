@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+    <a href="/posteos">volver</a>
+    <h1> Editar Posteo</h1>
+    <form action="/posteos/editar" method="post">
+        <input type="text" name="id" value="<%= posteos_jesus.id %>" hidden>
+        <input type="text" name="titulo" placeholder="Titulo del Posteo" value="<%= posteos_jesus.titulo %>"> <br>
+        <textarea name="contenido" cols="30" rows="10" placeholder="Que queres postear?"><%= posteos_jesus.contenido %></textarea> <br>
+        <input type="text" name="url" id="" value="<%= posteos_jesus.url %>">
+        <button>save</button>
+    </form>
+</body>
+<script src="../css/bootstrap.min.js"></script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+    <%- include("nadvar") %>
+    <h1>Posteos</h1>
+    <a class="btn btn-light" href="/posteos/paginapost" role="button">Crear nuevo posteo</a>
+    <div class="container" >
+        <div class="d-flex justify-content-evenly">
+            <% allTasks.forEach((posteos_jesus) => { %>
+        
+                <li style="list-style-type: none; max-width: 1900px;" class="d-flex justify-content-evenly">
+                    <div class="container text-center">
+                            <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+                                <div class="card text-bg-dark col" style="width: 18rem;">
+                                    <div class="card-body col">
+                                    <h5 class="card-title"><%= posteos_jesus.titulo %></h5>
+                                    <p class="card-text"><%= posteos_jesus.contenido %></p>
+                                    <a href="<%= posteos_jesus.url %>" target="_blank">Imagen del posteo</a>
+                                    <div>
+                                        <a href="/posteos/editar/<%= posteos_jesus.id %>" class="btn btn-primary">Editar</a>
+                                        <a href="/posteos/eliminar/<%= posteos_jesus.id %>" class="btn btn-danger">Eliminar</a>
+                                    </div>
+                                    <%}) %>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                    </div>
+                </li>   
+        </div>
+    </div>
+
+    <%- include("footer") %>
+</body>
+<script src="../css/bootstrap.min.js"></script>
+</html>
+
+
+
