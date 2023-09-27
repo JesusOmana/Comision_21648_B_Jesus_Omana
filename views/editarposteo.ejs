@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
 </head>
+
 <body>
-    <a href="/posteos">volver</a>
-    <h1> Editar Posteo</h1>
-    <form action="/posteos/editar" method="post">
-        <input type="text" name="id" value="<%= posteos_jesus.id %>" hidden>
-        <input type="text" name="titulo" placeholder="Titulo del Posteo" value="<%= posteos_jesus.titulo %>"> <br>
-        <textarea name="contenido" cols="30" rows="10" placeholder="Que queres postear?"><%= posteos_jesus.contenido %></textarea> <br>
-        <input type="text" name="url" id="" value="<%= posteos_jesus.url %>">
-        <button>save</button>
-    </form>
+    <%- include("nadvar") %>
+    <a class="btn btn-dark mx-5 my-3" href="/posteos">volver</a>
+    <h1 class="container-fluid text-center"> Editar Posteo</h1>
+
+    <div class="form-floating row col-md-6 offset-md-3">
+        <form action="/posteos/editar" method="post" class="text-center ">
+            <input type="text" name="id" value="<%= posteos_jesus.id %>" hidden>
+            <input type="text" name="titulo" placeholder="Titulo del Posteo" value="<%= posteos_jesus.titulo %>"> <br>
+            <textarea name="contenido" cols="30" rows="10" placeholder="Que queres postear?"><%= posteos_jesus.contenido %></textarea> <br>
+            <input type="url" name="url" required value="<%= posteos_jesus.url %>">
+            <button class="m-3 col-md-4 align-self-center btn btn-outline-success">save</button>
+        </form>
+    </div>
 </body>
-<script src="../css/bootstrap.min.js"></script>
+<%- include("footer") %>
+<script src="../bootstrap.min.js"></script>
 </html>

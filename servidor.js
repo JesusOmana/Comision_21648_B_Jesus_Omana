@@ -12,14 +12,15 @@ app.use(morgan("dev"))
 app.set('view engine', 'ejs')
 app.set("views",__dirname + "/views")
 
-/* app.use("/", express.static("public")) */
-app.use(express.static(__dirname + "/public"))
+app.use(express.static('public'))
 /* routes! */
 app.use("/posteos", require("./src/routes/tareas.routes"))
 
 app.listen(3000, () => {
     /* se cambio de authenticate a SYNC para que me cree
-    la tabla en caso de que no exista */
+    la tabla en caso de que no exista y se coloca false
+    para evitar que se sigan creando nuevas tablas
+    en la base de dato*/
     sequelize.sync({ force: false });
 
     console.log("servidor 3000")
