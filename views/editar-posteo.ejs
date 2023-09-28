@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+    <%- include("nadvar") %>
+    <a class="btn btn-dark mx-5 my-3" href="/posteos">volver</a>
+    <h1 class="container-fluid text-center"> Editar Posteo</h1>
+
+    <div class="form-floating row col-md-6 offset-md-3 ">
+        <form action="/posteos/editar" method="post" class="text-center">
+            <input type="text" class="form-control" name="id"  value="<%= posteos_jesus.id %>" hidden>
+            <input type="text" class="form-control" name="titulo" placeholder="Titulo del Posteo" value="<%= posteos_jesus.titulo %>"> <br>
+            <textarea type="text" class="form-control" name="contenido"  cols="30" rows="10" placeholder="Que queres postear?"><%= posteos_jesus.contenido %></textarea> <br>
+            <input type="url" class="form-control" name="url" required value="<%= posteos_jesus.url %>">
+            <button class="m-3 col-md-4 align-self-center btn btn-outline-success">save</button>
+        </form>
+    </div>
+</body>
+<%- include("footer") %>
+</html>

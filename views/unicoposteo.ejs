@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+<body>
+    <%- include("nadvar") %>
+<h1 class="text-center mt-3">Posteo</h1>
+<a class="btn btn-dark mx-5" href="/posteos/" role="button">Volver a Lista de Posteos</a>
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-3 text-center mt-3">
+                <h5 class="card-title"><%= task.titulo %></h5>
+            </div>
+            <div class="col-md-3 mt-3">
+                <p class="card-text"><%= task.contenido %></p>
+            </div>
+            <div class="col-md-2 mt-3">
+                <a href="<%= task.url %>" target="_blank">Imagen del posteo</a>
+            </div>
+            <div class="col-md-2 mt-3">
+                <p class="fw-light"><%= task.createdAt %></p>
+            </div>
+            <div class="col-md-2 mt-3">
+                <a href="/posteos/editar/<%= task.id %>" class="btn btn-primary my-1">Editar</a>
+                <a href="/posteos/eliminar/<%= task.id %>" class="btn btn-danger my-1">Eliminar</a>
+            </div>
+        </div>
+    </div>
+    <%- include("footer") %>
+</body>
+</html>
