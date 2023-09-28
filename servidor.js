@@ -10,9 +10,10 @@ app.use(express.urlencoded({extended:false}))
 app.use(cors())
 app.use(morgan("dev"))
 app.set('view engine', 'ejs')
+app.use(express.static('public'))
 app.set("views",__dirname + "/views")
 
-app.use(express.static('public'))
+
 /* routes! */
 app.use("/posteos", require("./src/routes/tareas.routes"))
 

@@ -10,14 +10,14 @@ const {
     enlistadoPosteo,
     individualPosteo,
     formularioEditarPosteo,
-} =require("../../src/controllers/controllers")
+} =require("../controllers/controllers")
 
 router.get("/",enlistadoPosteo)
 router.get("/paginapost",abrirFormulario)
-router.post ("/crearpost",crearPosteo)
 router.get("/editar/:id",formularioEditarPosteo)
-router.post("/editar",editarPosteo)
-router.get("/:id",individualPosteo)
+router.post ("/crearpost",crearPosteo)
+router.post("/editar/",editarPosteo)
+router.get("/unicoposteo/:id",individualPosteo)
 router.get("/eliminar/:id",borrarPosteo)
 
 

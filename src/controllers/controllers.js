@@ -41,7 +41,7 @@ async function formularioEditarPosteo(req,res) {
         if (!posteos_jesus){
             return res.redirect("/posteos")
         }
-    res.render("editarposteo", {posteos_jesus})
+    res.render("editar-posteo", {posteos_jesus})
 }
 
 async function editarPosteo (req, res) {
@@ -50,7 +50,6 @@ async function editarPosteo (req, res) {
     const posteos_jesus = await NoteModel.findByPk(id)
 
     await posteos_jesus.update({titulo, contenido, url})
-
     res.redirect("/posteos")
     
 }
@@ -78,7 +77,7 @@ async function individualPosteo(req,res) {
 /*         if (task==null) {
             return res.send("La tarea que busca no se encuentra")
         } */
-    res.json(task)
+    res.render("unicoposteo", {task})
 }
 
 module.exports = {

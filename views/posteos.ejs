@@ -13,10 +13,10 @@
     <% allTasks.forEach((posteos_jesus) => { %>
     <div class="container-fluid">
         <div class="row align-items-center">
-            <div class="col-md-3 text-center mt-3">
+            <div class="col-md-2 text-center mt-3">
                 <h5 class="card-title"><%= posteos_jesus.titulo %></h5>
             </div>
-            <div class="col-md-3 mt-3">
+            <div class="col-md-4 mt-3">
                 <p class="card-text"><%= posteos_jesus.contenido %></p>
             </div>
             <div class="col-md-2 mt-3">
@@ -28,6 +28,7 @@
             <div class="col-md-2 mt-3">
                 <a href="/posteos/editar/<%= posteos_jesus.id %>" class="btn btn-primary my-1">Editar</a>
                 <a href="/posteos/eliminar/<%= posteos_jesus.id %>" class="btn btn-danger my-1">Eliminar</a>
+                <a href="/posteos/unicoposteo/<%= posteos_jesus.id %>" class="btn btn-danger my-1">posteo</a>
             </div>
         </div>
     </div>
