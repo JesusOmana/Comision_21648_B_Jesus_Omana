@@ -11,8 +11,8 @@
     <a class="btn btn-dark mx-5 my-3" href="/posteos">volver</a>
     <h1 class="container-fluid text-center"> Editar Posteo</h1>
 
-    <div class="form-floating row col-md-6 offset-md-3 m-2">
-        <form action="/posteos/editar" method="post" class="text-center">
+    <div class="form-floating row col-md-6 offset-md-3">
+        <form action="/posteos/editar" method="post" class="text-center m-2">
             <input type="text" class="form-control" name="id"  value="<%= posteos_jesus.id %>" hidden>
             <input type="text" class="form-control" name="titulo" placeholder="Titulo del Posteo" value="<%= posteos_jesus.titulo %>"> <br>
             <textarea type="text" class="form-control" name="contenido"  cols="30" rows="5" placeholder="Que queres postear?"><%= posteos_jesus.contenido %></textarea> <br>
